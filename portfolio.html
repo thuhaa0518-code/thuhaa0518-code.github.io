@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trần Thị Thu Hà - Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --navy-mid: #1a2e44;
+    --blue: #1e5fa8;
+    --blue-light: #3a7fc1;
+    --sky: #6fb3e0;
+    --cream: #f5f0e8;
+    --warm: #ede8de;
+    --accent: #c8955a;
+    --accent-light: #e8b87a;
+    --text: #1a1a1a;
+    --text-muted: #5a5a5a;
+    --border: rgba(30,95,168,0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(245,240,232,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 600;
+    color: var(--navy); letter-spacing: 0.02em;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; text-decoration: none;
+    color: var(--text-muted); transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--blue); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 6rem 4rem 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -20%; right: -10%;
+    width: 60vw; height: 60vw;
+    background: radial-gradient(circle, rgba(30,95,168,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-text { position: relative; z-index: 1; }
+  .hero-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem; letter-spacing: 0.15em;
+    color: var(--blue); text-transform: uppercase;
+    background: rgba(30,95,168,0.08);
+    padding: 0.4rem 1rem; border-radius: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 600; line-height: 1.05;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+  .hero h1 em {
+    font-style: italic; color: var(--navy);
+  }
+  .hero-subtitle {
+    font-size: 1.05rem; font-weight: 300;
+    color: var(--text-muted); line-height: 1.7;
+    max-width: 480px; margin: 1.5rem 0 2.5rem;
+  }
+  .hero-subtitle strong { color: var(--navy); font-weight: 500; }
+  .hero-cta { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--navy); color: var(--cream);
+    padding: 0.85rem 2rem; border-radius: 0.3rem;
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em;
+    text-decoration: none; transition: all 0.2s;
+  }
+  .btn-primary:hover { background: var(--blue); transform: translateY(-1px); }
+  .btn-ghost {
+    color: var(--navy); border: 1.5px solid var(--navy);
+    padding: 0.85rem 2rem; border-radius: 0.3rem;
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em;
+    text-decoration: none; transition: all 0.2s;
+  }
+  .btn-ghost:hover { background: var(--navy); color: var(--cream); }
+
+  .hero-visual {
+    display: flex; justify-content: center; align-items: center;
+    position: relative;
+  }
+  .hero-card {
+    background: white;
+    border-radius: 1.2rem;
+    padding: 2.5rem;
+    box-shadow: 0 20px 60px rgba(13,27,42,0.12);
+    width: 380px;
+    position: relative;
+  }
+  .hero-card::before {
+    content: '';
+    position: absolute; top: -2px; left: 2rem; right: 2rem; height: 4px;
+    background: linear-gradient(90deg, var(--blue), var(--accent));
+    border-radius: 0 0 4px 4px;
+  }
+  .card-header {
+    display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;
+  }
+  .avatar {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), var(--navy));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 600; color: white;
+  }
+  .card-name { font-weight: 500; font-size: 1rem; color: var(--navy); }
+  .card-role { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem; }
+
+  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+  .stat-item {
+    background: var(--warm);
+    padding: 1rem; border-radius: 0.6rem; text-align: center;
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 600; color: var(--navy);
+    line-height: 1;
+  }
+  .stat-label { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.3rem; }
+
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; padding: 0.3rem 0.7rem;
+    border-radius: 0.25rem;
+    background: rgba(30,95,168,0.08); color: var(--blue);
+    border: 1px solid rgba(30,95,168,0.2);
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 4rem; }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem); font-weight: 600;
+    color: var(--navy); line-height: 1.15;
+  }
+  .section-header { margin-bottom: 3.5rem; }
+
+  /* ── ABOUT ── */
+  #about { background: var(--navy); color: var(--cream); }
+  #about .section-label { color: var(--sky); }
+  #about .section-title { color: var(--cream); }
+  .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center; }
+  .about-text p {
+    font-size: 1.05rem; line-height: 1.85; color: rgba(245,240,232,0.85);
+    margin-bottom: 1.2rem; font-weight: 300;
+  }
+  .about-text p strong { color: var(--accent-light); font-weight: 500; }
+  .about-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-style: italic;
+    color: var(--sky); line-height: 1.5;
+    border-left: 3px solid var(--accent);
+    padding-left: 1.5rem; margin: 2rem 0;
+  }
+  .about-skills { display: flex; flex-direction: column; gap: 1.2rem; }
+  .skill-group-title {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--sky);
+    margin-bottom: 0.6rem;
+  }
+  .skill-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .skill-pill {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; padding: 0.35rem 0.8rem;
+    border-radius: 2rem;
+    background: rgba(111,179,224,0.12);
+    border: 1px solid rgba(111,179,224,0.25);
+    color: rgba(245,240,232,0.9);
+  }
+
+  /* ── PROJECTS ── */
+  #projects { background: var(--cream); }
+  .projects-grid { display: flex; flex-direction: column; gap: 4rem; }
+  .project-card {
+    display: grid; grid-template-columns: 1fr 1.4fr;
+    gap: 0; border-radius: 1rem; overflow: hidden;
+    box-shadow: 0 4px 30px rgba(13,27,42,0.08);
+    background: white;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 50px rgba(13,27,42,0.14);
+  }
+  .project-card:nth-child(even) { grid-template-columns: 1.4fr 1fr; }
+  .project-card:nth-child(even) .project-info { order: -1; }
+
+  .project-visual {
+    background: linear-gradient(135deg, var(--navy-mid), var(--navy));
+    padding: 3rem;
+    display: flex; flex-direction: column;
+    justify-content: space-between;
+    min-height: 320px; position: relative; overflow: hidden;
+  }
+  .project-visual::after {
+    content: '';
+    position: absolute; bottom: -30%; right: -20%;
+    width: 200px; height: 200px;
+    background: rgba(111,179,224,0.08);
+    border-radius: 50%;
+  }
+  .project-visual.v2 { background: linear-gradient(135deg, #1a3a5c, #0d2035); }
+  .project-visual.v3 { background: linear-gradient(135deg, #1e2d4a, #142038); }
+
+  .project-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem; font-weight: 600;
+    color: rgba(255,255,255,0.08);
+    line-height: 1;
+  }
+  .project-icon {
+    font-size: 3.5rem; margin: 1rem 0;
+  }
+  .project-roles { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .role-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; padding: 0.25rem 0.6rem;
+    border-radius: 0.2rem;
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.8);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .role-badge.ba { background: rgba(200,149,90,0.25); border-color: rgba(200,149,90,0.4); color: var(--accent-light); }
+  .role-badge.dev { background: rgba(111,179,224,0.2); border-color: rgba(111,179,224,0.35); color: var(--sky); }
+  .role-badge.qa { background: rgba(80,200,120,0.15); border-color: rgba(80,200,120,0.3); color: #90d4a0; }
+
+  .project-info { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
+  .project-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.15em;
+    color: var(--accent); text-transform: uppercase;
+    margin-bottom: 0.7rem;
+  }
+  .project-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem; font-weight: 600;
+    color: var(--navy); line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+  .project-subtitle {
+    font-size: 0.82rem; color: var(--text-muted);
+    margin-bottom: 1.2rem; font-style: italic;
+  }
+  .project-impact {
+    background: linear-gradient(135deg, rgba(30,95,168,0.06), rgba(30,95,168,0.03));
+    border-left: 3px solid var(--blue);
+    padding: 0.8rem 1.2rem; border-radius: 0 0.4rem 0.4rem 0;
+    margin-bottom: 1.2rem;
+    font-size: 0.9rem; color: var(--navy);
+    font-style: italic; line-height: 1.6;
+  }
+  .project-points { list-style: none; margin-bottom: 1.5rem; }
+  .project-points li {
+    font-size: 0.88rem; color: var(--text-muted);
+    padding: 0.35rem 0; padding-left: 1.2rem;
+    position: relative; line-height: 1.5;
+  }
+  .project-points li::before {
+    content: '→';
+    position: absolute; left: 0;
+    color: var(--blue); font-size: 0.8rem;
+  }
+  .project-links { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+  .project-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; padding: 0.4rem 1rem;
+    border-radius: 0.25rem; text-decoration: none;
+    transition: all 0.2s;
+  }
+  .link-github {
+    background: var(--navy); color: var(--cream);
+  }
+  .link-github:hover { background: var(--blue); }
+  .link-figma {
+    border: 1.5px solid var(--border); color: var(--navy);
+  }
+  .link-figma:hover { border-color: var(--blue); color: var(--blue); }
+  .link-doc {
+    border: 1.5px solid rgba(200,149,90,0.4); color: var(--accent);
+  }
+  .link-doc:hover { background: rgba(200,149,90,0.08); }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--warm); }
+  .skills-layout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .skill-card {
+    background: white; border-radius: 0.8rem; padding: 2rem;
+    border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .skill-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(13,27,42,0.08); }
+  .skill-card-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .skill-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem; font-weight: 600;
+    color: var(--navy); margin-bottom: 0.5rem;
+  }
+  .skill-card-desc {
+    font-size: 0.82rem; color: var(--text-muted);
+    line-height: 1.6; margin-bottom: 1.2rem;
+  }
+  .skill-items { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .skill-item {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem; padding: 0.3rem 0.65rem;
+    border-radius: 0.2rem;
+    background: var(--warm); color: var(--text-muted);
+    border: 1px solid rgba(0,0,0,0.08);
+  }
+
+  /* ── SOFT SKILLS ── */
+  .softskills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; margin-top: 3rem; }
+  .soft-item {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1.2rem; background: white; border-radius: 0.6rem;
+    border: 1px solid var(--border);
+  }
+  .soft-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .soft-title { font-weight: 500; font-size: 0.9rem; color: var(--navy); margin-bottom: 0.3rem; }
+  .soft-desc { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--navy);
+    text-align: center; color: var(--cream);
+  }
+  #contact .section-label { color: var(--sky); }
+  #contact .section-title { color: var(--cream); margin-bottom: 1rem; }
+  .contact-sub {
+    font-size: 1rem; color: rgba(245,240,232,0.65);
+    font-weight: 300; margin-bottom: 3rem; max-width: 480px; margin-left: auto; margin-right: auto;
+  }
+  .contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 3rem; }
+  .contact-link {
+    display: flex; align-items: center; gap: 0.6rem;
+    padding: 1rem 1.8rem; border-radius: 0.4rem;
+    font-size: 0.88rem; font-weight: 500; text-decoration: none;
+    transition: all 0.2s;
+  }
+  .contact-link.email { background: rgba(245,240,232,0.1); color: var(--cream); border: 1px solid rgba(245,240,232,0.2); }
+  .contact-link.email:hover { background: rgba(245,240,232,0.18); }
+  .contact-link.github { background: rgba(111,179,224,0.12); color: var(--sky); border: 1px solid rgba(111,179,224,0.25); }
+  .contact-link.github:hover { background: rgba(111,179,224,0.2); }
+  .contact-link.phone { background: rgba(200,149,90,0.12); color: var(--accent-light); border: 1px solid rgba(200,149,90,0.25); }
+  .contact-link.phone:hover { background: rgba(200,149,90,0.2); }
+
+  .footer-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; color: rgba(245,240,232,0.3);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    width: 60px; height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--accent));
+    border-radius: 2px; margin: 1rem 0 2rem;
+  }
+
+  /* ── SCROLL FADE ── */
+  .fade-up {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 5rem 1.5rem 3rem; }
+    .hero-visual { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .project-card, .project-card:nth-child(even) { grid-template-columns: 1fr; }
+    .project-card:nth-child(even) .project-info { order: 0; }
+    .project-visual { min-height: 200px; }
+    .skills-layout { grid-template-columns: 1fr; }
+    .softskills-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+
+  <ul class="nav-links">
+    <li><a href="#about">Về tôi</a></li>
+    <li><a href="#projects">Dự án</a></li>
+    <li><a href="#skills">Kỹ năng</a></li>
+    <li><a href="#contact">Liên hệ</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text fade-up">
+    <div class="hero-tag">BA · Dev · Đà Nẵng</div>
+    <h1>Trần Thị<br>Thu Hà</h1>
+    <p class="hero-subtitle">
+      Sinh viên năm 3 ngành Hệ thống Thông tin Quản lý.<br>
+      Tôi <strong>phân tích yêu cầu, thiết kế giải pháp</strong> và hiện thực hóa sản phẩm -
+      từ phỏng vấn nghiệp vụ đến sản phẩm chạy được.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">Xem dự án</a>
+      <a href="mailto:thuhaa0518@gmail.com" class="btn-ghost">Liên hệ tôi</a>
+    </div>
+  </div>
+
+  <div class="hero-visual fade-up">
+    <div class="hero-card">
+      <div class="card-header">
+        <div class="avatar">TH</div>
+        <div>
+          <div class="card-name">Trần Thị Thu Hà</div>
+          <div class="card-role">IT Intern · HTTT Quản lý</div>
+        </div>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-item">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Dự án thực tế</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">3.29</div>
+          <div class="stat-label">GPA / 4.0</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">630</div>
+          <div class="stat-label">TOEIC</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">BA+</div>
+          <div class="stat-label">Dev · QA</div>
+        </div>
+      </div>
+      <div class="skill-tags">
+        <span class="tag">Figma</span>
+        <span class="tag">SRS</span>
+        <span class="tag">Kotlin</span>
+        <span class="tag">SQL</span>
+        <span class="tag">GitHub</span>
+        <span class="tag">BPMN</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header fade-up">
+    <div class="section-label">01 - About</div>
+    <div class="section-title">Tôi là ai &<br>tôi mang lại gì</div>
+    <div class="divider" style="background: linear-gradient(90deg, var(--sky), var(--accent-light));"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text fade-up">
+      <p>Tôi là sinh viên năm 3 ngành <strong>Hệ thống Thông tin Quản lý</strong> tại Đại học Kinh tế, Đại học Đà Nẵng. Điều khiến tôi khác biệt so với sinh viên thuần kỹ thuật là tôi <strong>hiểu được cả hai phía</strong> - đủ kỹ thuật để làm việc với dev, đủ nghiệp vụ để hiểu stakeholder.</p>
+      <blockquote class="about-quote">"Tôi thích giai đoạn phân tích nhất - ngồi với người dùng thật, hỏi đúng câu và biến yêu cầu mơ hồ thành tài liệu mà cả team có thể xây dựng được."</blockquote>
+      <p>Qua 3 dự án học thuật, tôi đã trải qua đầy đủ vòng đời phần mềm: từ <strong>phỏng vấn thu thập yêu cầu</strong> → viết SRS → thiết kế Figma → code frontend/backend → viết test case → kiểm thử. Đó là nền tảng để tôi tự tin đóng góp ngay từ ngày đầu thực tập.</p>
+    </div>
+    <div class="about-skills fade-up">
+      <div>
+        <div class="skill-group-title">🔍 Phân tích & Thiết kế</div>
+        <div class="skill-list">
+          <span class="skill-pill">Thu thập yêu cầu</span>
+          <span class="skill-pill">SRS</span>
+          <span class="skill-pill">BPMN</span>
+          <span class="skill-pill">DFD</span>
+          <span class="skill-pill">Use Case</span>
+          <span class="skill-pill">ERD</span>
+          <span class="skill-pill">Figma</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group-title">💻 Lập trình</div>
+        <div class="skill-list">
+          <span class="skill-pill">HTML - CSS - JS</span>
+          <span class="skill-pill">Android / Kotlin</span>
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">SQL / T-SQL</span>
+          <span class="skill-pill">C# - Java cơ bản</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group-title">🛠 Công cụ & Cộng tác</div>
+        <div class="skill-list">
+          <span class="skill-pill">GitHub</span>
+          <span class="skill-pill">Trello</span>
+          <span class="skill-pill">Notion</span>
+          <span class="skill-pill">Miro</span>
+          <span class="skill-pill">Excel</span>
+          <span class="skill-pill">Test Plan / Test Case</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group-title">🌐 Ngoại ngữ</div>
+        <div class="skill-list">
+          <span class="skill-pill">TOEIC 630</span>
+          <span class="skill-pill">Đọc tài liệu kỹ thuật</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header fade-up">
+    <div class="section-label">02 - Projects</div>
+    <div class="section-title">3 dự án,<br>đầy đủ vòng đời</div>
+    <div class="divider"></div>
+  </div>
+
+  <div class="projects-grid">
+
+    <!-- Project 1 -->
+    <div class="project-card fade-up">
+      <div class="project-visual">
+        <div class="project-num">01</div>
+        <div class="project-icon">🏪</div>
+        <div class="project-roles">
+          <span class="role-badge ba">BA</span>
+          <span class="role-badge">Phân tích</span>
+          <span class="role-badge">Thiết kế</span>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-year">2024</div>
+        <div class="project-title">Hệ thống Quản lý<br>Cửa hàng Tạp hóa</div>
+        <div class="project-subtitle">Phân tích & Thiết kế HTTT</div>
+        <div class="project-impact">
+          "Phỏng vấn trực tiếp chủ cửa hàng - không dùng giả định - để khai thác yêu cầu nghiệp vụ thực tế mà người dùng chưa nói ra."
+        </div>
+        <ul class="project-points">
+          <li>Thu thập yêu cầu qua phỏng vấn thực tế, phân tích quy trình vận hành</li>
+          <li>Soạn SRS đầy đủ: chức năng, phi chức năng, ràng buộc hệ thống</li>
+          <li>Thiết kế DFD các mức, Use Case Diagram, ERD</li>
+          <li>Xác định điểm thất bại của hệ thống thủ công hiện tại</li>
+        </ul>
+        <div class="project-links">
+          <a href="https://docs.google.com/document/d/1NRtnxUzlSgR2QdMfiOWwhIeFd0merQtaNL8x_QnzB8E/edit?usp=sharing">📄 Xem SRS</a>
+          <a href="https://app.diagrams.net/#G1oKQzPnz3eSNmhk4PuZ6HuwP2OE5_3YdX#%7B%22pageId%22%3A%226lfQK8eIyFSj8qR92lBv%22%7D">🔷 DFD & ERD</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card fade-up">
+      <div class="project-visual v2">
+        <div class="project-num">02</div>
+        <div class="project-icon">🛒</div>
+        <div class="project-roles">
+          <span class="role-badge ba">BA</span>
+          <span class="role-badge dev">Dev</span>
+          <span class="role-badge qa">QA</span>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-year">2025</div>
+        <div class="project-title">Web Bán Hàng Online<br>& Kiểm thử</div>
+        <div class="project-subtitle">Lập trình Web - Software Testing</div>
+        <div class="project-impact">
+          "Tự phân tích, thiết kế, code và test hoàn chỉnh một web bán hàng - bao gồm 40+ test case với 0 critical bug khi demo."
+        </div>
+        <ul class="project-points">
+          <li>Phân tích yêu cầu, thiết kế giao diện Figma trước khi code</li>
+          <li>Xây dựng web bán hàng từ đầu: frontend + backend cơ bản</li>
+          <li>Lập Test Plan, viết 40+ Test Case, kiểm thử chức năng & phi chức năng</li>
+          <li>Ghi nhận lỗi, phân loại ưu tiên, theo dõi vòng lặp fix-retest</li>
+        </ul>
+        <div class="project-links">
+          <a href="https://github.com/dieppngoc0510/AutoTest_Sele_Nhom5" class="project-link link-github">⚡ GitHub</a>
+          <a href="https://www.figma.com/design/sMIRcfZ6Mv4Bgf5pz69rjK/TEST?node-id=0-1&p=f&t=qKZ13NoW67ctsOzJ-0" class="project-link link-figma">🎨 Figma</a>
+          <a href="https://docs.google.com/spreadsheets/d/1IyhF3zb6_qW48GGQLF4bwmcJf9CF5R6JjyC7rFpGLHI/edit?gid=1714713045#gid=1714713045" class="project-link link-doc">🧪 Test Cases</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card fade-up">
+      <div class="project-visual v3">
+        <div class="project-num">03</div>
+        <div class="project-icon">📅</div>
+        <div class="project-roles">
+          <span class="role-badge ba">BA</span>
+          <span class="role-badge dev">Dev</span>
+          <span class="role-badge">Kotlin</span>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-year">2026</div>
+        <div class="project-title">App Quản lý Lịch trình<br>Thông minh</div>
+        <div class="project-subtitle">Android - Kotlin - Mobile</div>
+        <div class="project-impact">
+          "Tự học Android/Kotlin trong khi chạy dự án - thiết kế wireframe kỹ trước khi code giúp team không phải làm lại lần nào."
+        </div>
+        <ul class="project-points">
+          <li>Thiết kế wireframe & user flow hoàn chỉnh trên Figma trước khi code</li>
+          <li>Tự học Kotlin để tham gia xây dựng tính năng đăng nhập, sự kiện, nhắc nhở</li>
+          <li>Quản lý source code qua GitHub, phân chia task qua Trello</li>
+          <li>Viết tài liệu luồng tính năng để đồng bộ cả nhóm 4 người</li>
+        </ul>
+        <div class="project-links">
+          <a href="https://github.com/thuhaa0518-code/PSM_Nhom9" class="project-link link-github">⚡ GitHub</a>
+          <a href="https://www.figma.com/design/VXgLcyV8TkMEQKXhvI2u6L/PSM?node-id=0-1&p=f&t=ZRF2XGSW9uySjNwE-0" class="project-link link-figma">🎨 Figma</a>
+          <a href="https://www.canva.com/design/DAG__689PTI/FpOSJiz8blPL4yuRjSOE4A/edit?fbclid=IwY2xjawQQCvxleHRuA2FlbQIxMABicmlkETE4Q3pBMXlLMUtRanFKU2dpc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHvOVD-UHrbLmYhXvaM7XR986TMvxQ5PuuY_oKJ-a5QhzhxJfK_Vekh8u34oD_aem_mOcKH1PutVkpzs8RlY5ddQ" class="project-link link-doc">📋 Tài liệu</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header fade-up">
+    <div class="section-label">03 - Skills</div>
+    <div class="section-title">Kỹ năng &<br>công cụ</div>
+    <div class="divider"></div>
+  </div>
+
+  <div class="skills-layout">
+    <div class="skill-card fade-up">
+      <div class="skill-card-icon">🔍</div>
+      <div class="skill-card-title">Business Analysis</div>
+      <p class="skill-card-desc">Thu thập & mô hình hóa yêu cầu. Làm cầu nối giữa stakeholder và development team.</p>
+      <div class="skill-items">
+        <span class="skill-item">SRS</span>
+        <span class="skill-item">BPMN</span>
+        <span class="skill-item">DFD</span>
+        <span class="skill-item">Use Case</span>
+        <span class="skill-item">ERD</span>
+        <span class="skill-item">Figma</span>
+        <span class="skill-item">User Interview</span>
+      </div>
+    </div>
+    <div class="skill-card fade-up">
+      <div class="skill-card-icon">💻</div>
+      <div class="skill-card-title">Development</div>
+      <p class="skill-card-desc">Hiện thực hóa giải pháp - đủ kỹ thuật để hiểu và trao đổi với dev team.</p>
+      <div class="skill-items">
+        <span class="skill-item">HTML / CSS / JS</span>
+        <span class="skill-item">Android / Kotlin</span>
+        <span class="skill-item">Python</span>
+        <span class="skill-item">SQL / T-SQL</span>
+        <span class="skill-item">C#</span>
+        <span class="skill-item">Java</span>
+        <span class="skill-item">GitHub</span>
+      </div>
+    </div>
+    <div class="skill-card fade-up">
+      <div class="skill-card-icon">🧪</div>
+      <div class="skill-card-title">Testing & Quality</div>
+      <p class="skill-card-desc">Đảm bảo chất lượng sản phẩm trước khi bàn giao - từ test plan đến fix-retest.</p>
+      <div class="skill-items">
+        <span class="skill-item">Test Plan</span>
+        <span class="skill-item">Test Case</span>
+        <span class="skill-item">Functional Testing</span>
+        <span class="skill-item">Bug Tracking</span>
+        <span class="skill-item">Fix-Retest</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOFT SKILLS -->
+  <div style="margin-top: 3.5rem;" class="fade-up">
+    <div class="section-label" style="margin-bottom: 0.5rem;">Kỹ năng mềm</div>
+    <div class="softskills-grid">
+      <div class="soft-item">
+        <div class="soft-icon">🎯</div>
+        <div>
+          <div class="soft-title">Tư duy phân tích & giải quyết vấn đề</div>
+          <div class="soft-desc">Nhìn vào quy trình phức tạp, decompose thành các bước nhỏ và tìm điểm thắt cổ chai.</div>
+        </div>
+      </div>
+      <div class="soft-item">
+        <div class="soft-icon">🗣</div>
+        <div>
+          <div class="soft-title">Giao tiếp & lắng nghe chủ động</div>
+          <div class="soft-desc">Hỏi đúng câu để khai thác yêu cầu thật sự - không phải yêu cầu bề mặt người dùng nói ra.</div>
+        </div>
+      </div>
+      <div class="soft-item">
+        <div class="soft-icon">📝</div>
+        <div>
+          <div class="soft-title">Viết tài liệu rõ ràng, súc tích</div>
+          <div class="soft-desc">SRS, use case, meeting notes phải để cả dev lẫn khách hàng đều hiểu được.</div>
+        </div>
+      </div>
+      <div class="soft-item">
+        <div class="soft-icon">🔬</div>
+        <div>
+          <div class="soft-title">Tự học & tự nghiên cứu</div>
+          <div class="soft-desc">Tự học Android/Kotlin trong khi chạy dự án thực tế - không cần ai cầm tay chỉ việc.</div>
+        </div>
+      </div>
+      <div class="soft-item">
+        <div class="soft-icon">🤝</div>
+        <div>
+          <div class="soft-title">Làm việc nhóm đa vai trò</div>
+          <div class="soft-desc">Kinh nghiệm làm cùng lúc BA + Dev + QA trong cùng một dự án - hiểu mọi góc nhìn.</div>
+        </div>
+      </div>
+      <div class="soft-item">
+        <div class="soft-icon">⏱</div>
+        <div>
+          <div class="soft-title">Quản lý thời gian & ưu tiên</div>
+          <div class="soft-desc">Biết task nào cần làm trước, deadline nào cứng - không để bottleneck ảnh hưởng cả team.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="fade-up">
+    <div class="section-label">04 - Contact</div>
+    <div class="section-title" style="margin-bottom: 1rem;">Liên hệ với tôi</div>
+    <div class="divider" style="background: linear-gradient(90deg, var(--sky), var(--accent-light)); margin: 0 auto 1.5rem;"></div>
+    <p class="contact-sub">Tôi đang tìm kiếm cơ hội thực tập hè 2026. Nếu bạn nghĩ tôi phù hợp với team của bạn, hãy liên hệ!</p>
+    <div class="contact-links">
+      <a href="mailto:thuhaa0518@gmail.com" class="contact-link email">
+        ✉ thuhaa0518@gmail.com
+      </a>
+      <a href="https://github.com/thuhaa0518-code" class="contact-link github">
+        ⚡ GitHub
+      </a>
+      <a href="tel:0395661810" class="contact-link phone">
+        📞 0395 661 810
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Smooth active nav
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id');
+    });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--blue)' : '';
+    });
+  });
+</script>
+</body>
+</html>
