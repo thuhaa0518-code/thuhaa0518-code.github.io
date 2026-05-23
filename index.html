@@ -325,7 +325,7 @@
 
   /* ── SKILLS ── */
   #skills { background: var(--warm); }
-  .skills-layout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .skills-layout { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
   .skill-card {
     background: white; border-radius: 0.8rem; padding: 2rem;
     border: 1px solid var(--border);
@@ -462,7 +462,7 @@
       </div>
       <div class="stat-grid">
         <div class="stat-item">
-          <div class="stat-num">3</div>
+          <div class="stat-num">4</div>
           <div class="stat-label">Dự án thực tế</div>
         </div>
         <div class="stat-item">
@@ -482,9 +482,11 @@
         <span class="tag">Figma</span>
         <span class="tag">SRS</span>
         <span class="tag">Kotlin</span>
+        <span class="tag">Python</span>
         <span class="tag">SQL</span>
         <span class="tag">GitHub</span>
         <span class="tag">BPMN</span>
+        <span class="tag">AI/ML</span>
       </div>
     </div>
   </div>
@@ -501,7 +503,7 @@
     <div class="about-text fade-up">
       <p>Tôi là sinh viên năm 3 ngành <strong>Hệ thống Thông tin Quản lý</strong> tại Đại học Kinh tế, Đại học Đà Nẵng. Điều khiến tôi khác biệt so với sinh viên thuần kỹ thuật là tôi <strong>hiểu được cả hai phía</strong> - đủ kỹ thuật để làm việc với dev, đủ nghiệp vụ để hiểu stakeholder.</p>
       <blockquote class="about-quote">"Tôi thích giai đoạn phân tích nhất - ngồi với người dùng thật, hỏi đúng câu và biến yêu cầu mơ hồ thành tài liệu mà cả team có thể xây dựng được."</blockquote>
-      <p>Qua 3 dự án học thuật, tôi đã trải qua đầy đủ vòng đời phần mềm: từ <strong>phỏng vấn thu thập yêu cầu</strong> → viết SRS → thiết kế Figma → code frontend/backend → viết test case → kiểm thử. Đó là nền tảng để tôi tự tin đóng góp ngay từ ngày đầu thực tập.</p>
+      <p>Qua 4 dự án học thuật, tôi đã trải qua đầy đủ vòng đời phần mềm: từ <strong>phỏng vấn thu thập yêu cầu</strong> → viết SRS → thiết kế Figma → code frontend/backend → viết test case → kiểm thử. Đó là nền tảng để tôi tự tin đóng góp ngay từ ngày đầu thực tập.</p>
     </div>
     <div class="about-skills fade-up">
       <div>
@@ -552,7 +554,7 @@
 <section id="projects">
   <div class="section-header fade-up">
     <div class="section-label">02 - Projects</div>
-    <div class="section-title">3 dự án,<br>đầy đủ vòng đời</div>
+    <div class="section-title">4 dự án,<br>đầy đủ vòng đời</div>
     <div class="divider"></div>
   </div>
 
@@ -637,11 +639,11 @@
         <div class="project-title">App Quản lý Lịch trình<br>Thông minh</div>
         <div class="project-subtitle">Android - Kotlin - Mobile</div>
         <div class="project-impact">
-          "Tự học Android/Kotlin trong khi chạy dự án - thiết kế wireframe kỹ trước khi code giúp team không phải làm lại lần nào."
+          "Sử dụng Android/Kotlin trong khi chạy dự án - thiết kế wireframe kỹ trước khi code giúp team không phải làm lại lần nào."
         </div>
         <ul class="project-points">
           <li>Thiết kế wireframe & user flow hoàn chỉnh trên Figma trước khi code</li>
-          <li>Tự học Kotlin để tham gia xây dựng tính năng đăng nhập, sự kiện, nhắc nhở</li>
+          <li>Sử dụng Kotlin để tham gia xây dựng tính năng đăng nhập, sự kiện, nhắc nhở</li>
           <li>Quản lý source code qua GitHub, phân chia task qua Trello</li>
           <li>Viết tài liệu luồng tính năng để đồng bộ cả nhóm 4 người</li>
         </ul>
@@ -652,6 +654,37 @@
         </div>
       </div>
     </div>
+
+    <!-- Project 4 -->
+<div class="project-card fade-up">
+  <div class="project-visual" style="background: linear-gradient(135deg, #0d2a1a, #0a3d2b);">
+    <div class="project-num">04</div>
+    <div class="project-icon">🌿</div>
+    <div class="project-roles">
+      <span class="role-badge" style="background:rgba(29,158,117,0.28);border-color:rgba(29,158,117,0.45);color:#7ee8c5;">AI / ML</span>
+      <span class="role-badge dev">Deep Learning</span>
+      <span class="role-badge">Deploy</span>
+    </div>
+  </div>
+  <div class="project-info">
+    <div class="project-year">2025</div>
+    <div class="project-title">Nhận Diện Cây Thuốc Nam<br>bằng AI</div>
+    <div class="project-subtitle">Deep Learning · MobileNetV2 · Gradio</div>
+    <div class="project-impact">
+      "Train mô hình nhận diện 80 loài cây thuốc từ ảnh lá, tự xây database dược liệu tiếng Việt và thiết kế hệ thống cảnh báo 3 cấp độ an toàn."
+    </div>
+    <ul class="project-points">
+      <li>Transfer learning với MobileNetV2 (pre-trained ImageNet), fine-tuning 30 layer cuối</li>
+      <li>Tự xây dựng plants_db.json - database 80 loài cây thuốc tiếng Việt (công dụng, liều dùng, cảnh báo)</li>
+      <li>Hệ thống cảnh báo 3 cấp: An toàn ·  Cần thận ·  Cực độc - ngưỡng bất đối xứng cho cây độc</li>
+      <li>Deploy thực tế bằng Gradio trên Google Colab, link public truy cập được từ điện thoại</li>
+    </ul>
+    <div class="project-links">
+      <a href="https://drive.google.com/drive/folders/1LeNW5qMgsJLocYY6SFMR76j5dTgKNwlq?usp=sharing" class="project-link link-doc">📄 Báo cáo</a>
+      <a href="https://colab.research.google.com/drive/1zILXGCR5F-CBM7xj4xw08xfTqRQPp4wP?usp=sharing" class="project-link link-github">🎨 Demo</a>
+    </div>
+  </div>
+</div>
 
   </div>
 </section>
@@ -705,6 +738,36 @@
         <span class="skill-item">Fix-Retest</span>
       </div>
     </div>
+    <div class="skill-card fade-up">
+      <div class="skill-card-icon">🤖</div>
+      <div class="skill-card-title">AI / Data</div>
+      <p class="skill-card-desc">Xây dựng và triển khai mô hình học máy cho bài toán thực tế.</p>
+      <div class="skill-items">
+        <span class="skill-item">Python</span>
+        <span class="skill-item">TensorFlow</span>
+        <span class="skill-item">Transfer Learning</span>
+        <span class="skill-item">CNN</span>
+        <span class="skill-item">Gradio</span>
+        <span class="skill-item">Google Colab</span>
+        <span class="skill-item">Data Augmentation</span>
+      </div>
+    </div>
+
+    <div class="skill-card fade-up">
+      <div class="skill-card-icon">🔮</div>
+      <div class="skill-card-title">AI Tools</div>
+      <p class="skill-card-desc">Khả năng  tích hợp và tối ưu công cụ AI.</p>
+      <div class="skill-items">
+        <span class="skill-item">ChatGPT</span>
+        <span class="skill-item">Claude</span>
+        <span class="skill-item">Midjourney</span>
+        <span class="skill-item">Notion AI</span>
+        <span class="skill-item">Canva</span>
+        <span class="skill-item">Prompt Engineering</span>
+        <span class="skill-item">AI Workflow Design</span>
+      </div>
+    </div>
+</div>
   </div>
 
   <!-- SOFT SKILLS -->
@@ -736,7 +799,7 @@
         <div class="soft-icon">🔬</div>
         <div>
           <div class="soft-title">Tự học & tự nghiên cứu</div>
-          <div class="soft-desc">Tự học Android/Kotlin trong khi chạy dự án thực tế - không cần ai cầm tay chỉ việc.</div>
+          <div class="soft-desc">Sử dụng Android/Kotlin khi chạy dự án thực tế.</div>
         </div>
       </div>
       <div class="soft-item">
